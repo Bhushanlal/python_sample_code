@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block pagecontent %}
+<div class="wrapper">
+    <!--header start-->
+      {% include 'partials/header.html' %}
+      <!--header end-->
+      {% include 'partials/message.html' %}
+         <section class="content settings">
+            <div class="container">
+               <div class="row">
+                  <!--main content start-->
+                  <div class="col-xs-12 col-md-3 settings-sidebar">
+                     <div class="settings-sidebar-cntnt">
+                        <ul class="nav nav-tabs tabs-left list-group">
+                           <li class="active"><a href="#profile" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
+                           <li><a href="#privacy" data-toggle="tab"><i class="fa fa-ban"></i>Privacy</a></li>
+                           <li><a href="#blocking" data-toggle="tab"><i class="fa fa-lock"></i>Blocking</a></li>
+                           <li><a href="#notifications" data-toggle="tab"><i class="fa fa-bell"></i>Notifications</a></li>
+                           <li><a href="{% url 'logout' %}" class="logout-btn"><i class="fa fa-sign-out"></i>Log Off</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!--sidebar menu tabs end-->
+                  <!--menu tabs content start-->
+                  <div class="col-xs-12 col-md-9 settings-cntnt">
+                     <div class="all-post-box">
+                        <div class="inner-box-white post">
+                           <div class="tab-content">
+                                <!-- profile tab -->
+                                {% include 'partials/profile.html' %}
+                                 <!--general setting Start-->
+                                 {% include 'partials/general_info.html' %}
+                                <!--general setting end-->
+                                 {% include 'partials/user_privacy.html' %}
+                                 <!--privacy content end-->
+                                 <!--blocking content start-->
+                                 {% include 'partials/block_user.html' %}
+                                 <!--blocking content end-->
+                                 <!--notification settings start-->
+                                 {% include 'partials/notify_me.html' %}
+                                 <!--notification settings end-->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--menu tabs content end-->
+                  <!--main content end-->
+               </div>
+            </div>
+         </section>
+         <!--enter question popup start-->
+         <!--Some other modals for question and answers-->
+         {% include 'partials/other_modals.html' %}
+         {% include 'partials/update_password.html' %}
+         <!--enter question popup end-->
+      </div>
+{% endblock %}
